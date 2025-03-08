@@ -1,0 +1,8 @@
+numpy
+opencv-python
+dlib
+face-recognition #Python wrapper around dlib
+opencv-python-headless
+torch
+torchvision
+matplotlib
