@@ -7,7 +7,14 @@ class LipReadingDataset(Dataset):
     """Custom PyTorch Dataset for Lip Reading (CTC)"""
     
     def __init__(self, npy_files):
-        self.data = [np.load(f, allow_pickle=True).item() for f in npy_files]
+        self.data = []
+        for f in npy_files:
+            content = np.load(f, allow_pickle=True).item()
+            # Check if frames are empty
+            if content["frames"].shape[0] == 0:
+                print(f"Warning: {f} has 0 frames. Skipping.")
+                continue
+            self.data.append(content)
 
     def __len__(self):
         return len(self.data)
