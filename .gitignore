@@ -4,3 +4,4 @@
 **/*.pyc
 src/training/__pycache__/vocab.cpython-310.pyc
 results/validation_results.csv
+src/training/__pycache__/vocab.cpython-310.pyc
