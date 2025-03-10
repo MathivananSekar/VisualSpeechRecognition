@@ -184,10 +184,10 @@ if __name__ == "__main__":
         from transformers import MBart50TokenizerFast, MBartForConditionalGeneration
         translator_model_name = "facebook/mbart-large-50-many-to-many-mmt"
         try:
-            tokenizer = MBart50TokenizerFast.from_pretrained(translator_model_name, src_lang="en_XX", tgt_lang="fr_XX" if args.target_lang.lower()=="fr" else "es_XX")
+            tokenizer = MBart50TokenizerFast.from_pretrained(translator_model_name, src_lang="en_XX", tgt_lang="fr_XX" if args.target_lang.lower()=="fr" else "es_XX",model_max_length=100)
         except Exception as e:
             from transformers import MBartTokenizer
-            tokenizer = MBartTokenizer.from_pretrained(translator_model_name, src_lang="en_XX", tgt_lang="fr_XX" if args.target_lang.lower()=="fr" else "es_XX")
+            tokenizer = MBartTokenizer.from_pretrained(translator_model_name, src_lang="en_XX", tgt_lang="fr_XX" if args.target_lang.lower()=="fr" else "es_XX",model_max_length=100)
             print(f"Error loading fast tokenizer: {e}.")
             exit(1)
         try:
