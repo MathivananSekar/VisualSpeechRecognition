@@ -22,10 +22,10 @@ os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # --------------------
-# Gather ALL .npy files for s1..s34
+# Gather ALL .npy files for s1..s33
 # --------------------
 data_base = "data/processed"
-speakers = [f"s{i}" for i in range(1, 35)]  # s1 to s34
+speakers = [f"s{i}" for i in range(1, 33)]  # s1 to s33
 
 npy_files = []
 for spk in speakers:

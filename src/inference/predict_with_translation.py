@@ -172,11 +172,11 @@ if __name__ == "__main__":
     print(f"Prediction for video: {args.video_path}")
     greedy_pred, fused_pred = predict_lip_reading(args.video_path, args.checkpoint, kenlm_model_path=args.kenlm_model, beam_size=args.beam_size, alpha=args.alpha)
     
-    print("Predicted (greedy):", greedy_pred)
-    if args.kenlm_model is not None:
-        print("Predicted (with LM fusion):", fused_pred)
-    else:
+    # print("Predicted (greedy):", greedy_pred)
+    if args.kenlm_model is  None:
         fused_pred = greedy_pred
+        # print("Predicted (with LM fusion):", fused_pred)
+        
     
     # Now integrate translation if target language is not English.
     if args.target_lang.lower() != "en":
@@ -209,4 +209,4 @@ if __name__ == "__main__":
     print("Final Predictions:")
     print("Without LM fusion:", greedy_pred)
     print("With LM fusion:", fused_pred)
-    print("After Translation to :", translated)
+    print(f"After Translation to {args.target_lang.lower()}: {translated}" )
